@@ -49,7 +49,7 @@ Open to collaborations on embedded/IoT projects and anything involving hands-on 
 |---|---|
 | **Languages** | C |
 | **Systems** | Linux (Zorin OS · Dual-boot · Shell scripting) |
-| **Embedded / IoT** | ESP32 · Microcontrollers · Hardware-Software integration |
+| **Embedded / IoT** | Adruino · Microcontrollers · Hardware-Software integration |
 | **Currently Learning** | C fundamentals · Linux administration · Embedded concepts |
 
 ---
