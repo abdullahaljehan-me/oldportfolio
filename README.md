@@ -1,6 +1,6 @@
 # Abdullah Al Jehan — Portfolio
 
-Source for [abdullahaljehan-me.github.io](https://abdullahaljehan-me.github.io/abdullahaljehan-me/), a personal portfolio site. Plain HTML, CSS, and JavaScript — no frameworks, no build step, no npm packages.
+A hacker-aesthetic, terminal-inspired personal site — prototyped with Antigravity (AI-assisted build), then customized and deployed on GitHub Pages. Live GitHub repo feed via the GitHub REST API, animated particle canvas, terminal boot sequence, and a Web3Forms contact integration.
 
 ## Overview
 
