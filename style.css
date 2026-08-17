@@ -29,7 +29,11 @@ body {
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
+}
+
+@media (pointer: fine) {
+  body { cursor: none; }
+  button, a, select, .skill-pill, .filter-btn { cursor: none; }
 }
 
 body.drawer-open { overflow: hidden; }
@@ -1054,6 +1058,21 @@ footer {
   letter-spacing: 0.1em;
 }
 
+a.blog-status {
+  display: block;
+  background: rgba(0, 212, 255, 0.08);
+  color: var(--cyan);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  text-decoration: none;
+  transition: background var(--transition), border-color var(--transition);
+  letter-spacing: 0.03em;
+}
+
+a.blog-status:hover {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: var(--cyan);
+}
+
 /* Filter buttons */
 .blog-filters, .projects-filters {
   display: flex;
@@ -1580,6 +1599,6 @@ footer {
 
 /* Additional tech fonts for headings */
 .section-title {
-  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 

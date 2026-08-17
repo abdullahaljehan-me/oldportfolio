@@ -4,7 +4,7 @@ const CONFIG = {
   GITHUB_API: 'https://api.github.com/users/abdullahaljehan-me/repos',
   GITHUB_USER: 'abdullahaljehan-me',
   CACHE_DURATION: 5 * 60 * 1000,
-  PARTICLE_COUNT: 150,
+  PARTICLE_COUNT: 80,
   WEB3FORMS_KEY: 'YOUR_WEB3FORMS_ACCESS_KEY',
   TAWKTO_URL: 'YOUR_TAWKTO_URL'
 };
@@ -34,6 +34,8 @@ const LANGUAGE_COLORS = {
 
 class CursorSystem {
   constructor() {
+    // Disable on touch devices — cursor doesn't apply
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
     this.dot = document.querySelector('.cursor-dot');
     this.ring = document.querySelector('.cursor-ring');
     if (!this.dot || !this.ring) return;
@@ -95,6 +97,8 @@ class CursorSystem {
 
 class ParticleSystem {
   constructor(canvas) {
+    // Skip on touch/mobile — saves battery and CPU
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
     this.particles = [];
@@ -561,7 +565,7 @@ class ContactForm {
       const msgEl = document.getElementById('form-message');
       if (msgEl) {
         msgEl.className = 'form-message success';
-        msgEl.textContent = 'Thank you! Secure uplink established. Message sent.';
+        msgEl.textContent = 'Message sent. I\'ll get back to you shortly.';
         msgEl.style.display = 'block';
       }
       this.form.reset();
@@ -823,7 +827,7 @@ class NewsletterForm {
       });
       if (resp.ok) {
         input.value = '';
-        btn.textContent = 'Subscribed! \uD83C\uDF89';
+        btn.textContent = 'Subscribed!';
         setTimeout(() => { btn.disabled = false; btn.textContent = 'Subscribe'; }, 3000);
       } else {
         throw new Error('fail');
@@ -969,11 +973,11 @@ class Scrambler {
 
 document.addEventListener('DOMContentLoaded', function () {
   try {
-    /* Particle system */
+    /* Particle system — skipped on touch by ParticleSystem constructor */
     var canvas = document.getElementById('particleCanvas');
     if (canvas) {
       var ps = new ParticleSystem(canvas);
-      ps.animate();
+      if (ps.ctx) ps.animate();
     }
 
     /* Typewriter */
